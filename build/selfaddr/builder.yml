@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+
+  ebz:
+    build:
+      context: ../../
+      dockerfile: ./build/selfaddr/selfaddr.dockerfile
+      args:
+        GO_VER: ${GO_VER}
+        OS_VER: ${OS_VER}
+    environment:
+      - APP_NAME=${APP_NAME}
+    image: ${SELFADDR_BUILD_IMAGE:-learn-p2p/selfaddr:current}
+   
